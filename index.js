@@ -43,22 +43,37 @@ console.log(monthlyRate);
 
 If your name is `Oscar` mortgageCalculator() should return "Oscar, your monthly rate is 1073.64"
 */
-function mortgageCalculator(){
-    console.log(`${name}, your monthly rate is ${monthlyRate}`);
-}
-mortgageCalculator()
 
-
+// function mortgageCalculator(){
+//     console.log(`${name}, your monthly rate is ${monthlyRate}`);
+// }
+// mortgageCalculator()
 
 // 🏡 Task 4: Arguments and Parameters
 /* Substitute the variables in your functions for parameters such that you can substitute `P`, `I`, and `N` when you call the function.
 
 For example,
-mortgageCalculator(2000000, 0.05, 30); <-- should return 1,073.64
+mortgageCalculator(200000, 0.05, 30); <-- should return 1,073.64
 */
 
+// const mortgageCalculator = (principal, interestRate, periods) => {
+//     const monthlyInterestRate = interestRate / 12;
+//     const period = periods * 12
+//     const numerator = monthlyInterestRate * Math.pow((1 + monthlyInterestRate), periods)
+//     const denominator = Math.pow((1 + monthlyInterestRate), period) - 1
+//     const monthlyRate = (principal * (numerator / denominator)).toFixed(2);
+//     console.log(monthlyRate);
+// }
 
+const mortgageCalculator = (P, I, N) => {
+    const monthlyInterestRate = I / 12;
+    const periods = N * 12;
+    const numerator = monthlyInterestRate * Math.pow((1 + monthlyInterestRate), periods)
+    const denominator = Math.pow((1 + monthlyInterestRate), periods) - 1
+    console.log(`${name}, your monthly rate is ${(P * (numerator / denominator)).toFixed(2)}`)
+}
 
+mortgageCalculator(200000, 0.05, 30)
 
 
 // 🏡 Task 5: Conditionals
