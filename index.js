@@ -30,8 +30,12 @@ Hint #2: you'll need to use the `math` object for parts of this calculation!
 
 When your math is correct, monthlyRate will equal 1073.64
 */
-
-
+// const numerator = interestRate * Math.pow((1 + interestRate), periods)
+// const denominator = Math.pow((1 + interestRate), periods) - 1
+const numerator = monthlyInterestRate * Math.pow((1 + monthlyInterestRate), periods)
+const denominator = Math.pow((1 + monthlyInterestRate), periods) - 1
+const monthlyRate = (principal * (numerator / denominator)).toFixed(2)
+console.log(monthlyRate);
 
 
 // 🏡 Task 3: Function
