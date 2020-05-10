@@ -65,15 +65,15 @@ mortgageCalculator(200000, 0.05, 30); <-- should return 1,073.64
 //     console.log(monthlyRate);
 // }
 
-const mortgageCalculator = (P, I, N) => {
-    const monthlyInterestRate = I / 12;
-    const periods = N * 12;
-    const numerator = monthlyInterestRate * Math.pow((1 + monthlyInterestRate), periods)
-    const denominator = Math.pow((1 + monthlyInterestRate), periods) - 1
-    console.log(`${name}, your monthly rate is ${(P * (numerator / denominator)).toFixed(2)}`)
-}
+// const mortgageCalculator = (P, I, N) => {
+//     const monthlyInterestRate = I / 12;
+//     const periods = N * 12;
+//     const numerator = monthlyInterestRate * Math.pow((1 + monthlyInterestRate), periods)
+//     const denominator = Math.pow((1 + monthlyInterestRate), periods) - 1
+//     console.log(`${name}, your monthly rate is ${(P * (numerator / denominator)).toFixed(2)}`)
+// }
 
-mortgageCalculator(200000, 0.05, 30)
+// mortgageCalculator(200000, 0.05, 30)
 
 
 // 🏡 Task 5: Conditionals
@@ -81,8 +81,21 @@ mortgageCalculator(200000, 0.05, 30)
 
 Then, add control flow within your function such that IF creditScore is above 740, interest rate drops by 0.5%, if credit score is below 660, interest rate increases by 0.5% and if credit score is anywhere between 660 and 740 interest rate doesn't change.
 */
-
-
+const mortgageCalculator = (creditScore, P, I, N) => {
+    if (creditScore > 740) {
+        I = I - (I * .5);
+    } else if(creditScore < 660){
+        I = I + (I * .5);
+    } else{
+        I = I;
+    }
+    const monthlyInterestRate = I / 12;
+    const periods = N * 12;
+    const numerator = monthlyInterestRate * Math.pow((1 + monthlyInterestRate), periods)
+    const denominator = Math.pow((1 + monthlyInterestRate), periods) - 1
+    console.log(`${name}, your monthly rate is ${(P * (numerator / denominator)).toFixed(2)}`)
+}
+mortgageCalculator(740, 200000, 0.05, 30)
 
 
 // 🏡 Task 6: Loops
