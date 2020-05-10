@@ -114,7 +114,20 @@ For example, variableInterestRate(200000, 0.04, 30) should console.log:
 "{Name}, with an interest rate of 0.06, your monthly rate is $1199"
 */
 
-
+const variableInterestRate = (P, I, N) => {
+    I = I - .02;
+    for (i = 0; i < 9; i++){
+        const monthlyInterestRate = I / 12;
+        const periods = N * 12;
+        const numerator = monthlyInterestRate * Math.pow((1 + monthlyInterestRate), periods)
+        const denominator = Math.pow((1 + monthlyInterestRate), periods) - 1
+        const monthlyRate = '$' + Math.round((P * (numerator / denominator)).toFixed(2))
+        console.log(`${name}, with an interest rate of ${I.toFixed(3)}, your monthly rate is ${monthlyRate}`);
+        I += .005;
+    }
+}
+variableInterestRate(200000, 0.04, 30)
+// variableInterestRate(200000, 0.06, 30)
 
 
 // 🌟🌟🌟 STRETCH 🌟🌟🌟//
